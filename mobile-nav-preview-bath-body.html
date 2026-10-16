@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Aurora Bath & Body Mobile Nav — Preview</title>
+<style>
+  :root {
+    --header-text-color: #222222;
+    --content-background-color: #F1EAEA;
+    --background-color-rgb: 241, 234, 234;
+    --border-color: rgba(203,173,129,0.4);
+    --header-bottom-position: 84px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Poppins', -apple-system, sans-serif;
+    background: #ddd;
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+  }
+  .device {
+    width: 390px;
+    background: var(--content-background-color);
+    border: 10px solid #111;
+    border-radius: 36px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  }
+  .note {
+    max-width: 390px;
+    margin: 0 auto 14px;
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #555;
+    text-align: center;
+  }
+
+  /* ── Fake header, mimicking your real one ── */
+  .header {
+    height: var(--header-bottom-position);
+    background: var(--content-background-color);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    position: relative;
+    z-index: 10;
+  }
+  .open-mobile-navigation {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+  .open-mobile-navigation svg { width: 26px; height: 26px; fill: #222; }
+  .header-logo {
+    font-family: Georgia, serif;
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    color: #7a6040;
+    text-align: center;
+  }
+  .header-icons { display: flex; gap: 16px; }
+  .header-icons svg { width: 20px; height: 20px; }
+
+  /* ── Real mobile-navigation panel CSS (from theme.css) ── */
+  #mobile-navigation {
+    background: rgba(var(--background-color-rgb), .95);
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: var(--header-bottom-position);
+    left: 0;
+    width: 100%;
+    height: 640px;
+    transition: opacity 0.15s ease, visibility 0.15s ease;
+    overflow: hidden;
+  }
+  #mobile-navigation[aria-hidden="false"] {
+    opacity: 1;
+    visibility: visible;
+  }
+  #mobile-navigation[aria-hidden="false"] .mobile-navigation__wrapper {
+    transform: translateX(0);
+  }
+  .mobile-navigation__wrapper {
+    background: var(--content-background-color);
+    padding: 16px;
+    height: 100%;
+    width: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+    overflow-y: auto;
+  }
+  .mobile-navigation__body { display: grid; gap: 30px; }
+  .mobile-navigation__custom-pages { position: relative; }
+  .mobile-navigation__social-links { padding-top: 20px; }
+  .mobile-navigation__icons {
+    display: flex;
+    column-gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .mobile-navigation__icons svg { width: 26px; height: 26px; fill: #222; }
+
+  /* ══════════════════ Your abmn- snippet CSS, unchanged ══════════════════ */
+  .abmn-list { list-style: none; margin: 0; padding: 0; }
+  .abmn-row { border-bottom: 1px solid rgba(203, 173, 129, 0.35); }
+  .abmn-row > a, .abmn-trigger {
+    display: flex; align-items: center; width: 100%;
+    padding: 16px 4px; background: none; border: none;
+    text-align: left; font-family: inherit; cursor: pointer;
+    color: var(--header-text-color, #222222); text-decoration: none;
+  }
+  .abmn-icon { flex-shrink: 0; margin-right: 14px; font-size: 1.1em; line-height: 1; }
+  .abmn-label { flex: 1; font-size: 1.1rem; color: var(--header-text-color, #222222); }
+  .abmn-chevron {
+    flex-shrink: 0; width: 11px; height: 11px; margin-left: 12px;
+    color: var(--header-text-color, #222222); opacity: 0.55;
+    transform: rotate(-90deg); transition: transform 0.2s ease;
+  }
+  .abmn-row--open .abmn-chevron { transform: rotate(0deg); }
+  .abmn-trigger-wrap { display: flex; align-items: stretch; }
+  .abmn-cat-link {
+    display: flex; align-items: center; flex: 1; min-width: 0;
+    padding: 16px 4px; color: var(--header-text-color, #222222); text-decoration: none;
+  }
+  .abmn-toggle {
+    flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+    padding: 16px 10px; background: none; border: none; cursor: pointer;
+    color: var(--header-text-color, #222222);
+  }
+  .abmn-submenu {
+    list-style: none; margin: 0 0 8px 0; padding: 0;
+    max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+    border-left: 1px solid rgba(203, 173, 129, 0.5); margin-left: 20px;
+  }
+  .abmn-submenu--open { max-height: 800px; }
+  .abmn-submenu li { border-bottom: 1px solid rgba(203, 173, 129, 0.25); }
+  .abmn-submenu li:last-child { border-bottom: none; }
+  .abmn-submenu a {
+    display: flex; align-items: center; padding: 12px 4px 12px 18px;
+    color: var(--header-text-color, #222222); text-decoration: none;
+  }
+  .abmn-submenu-text { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+  .abmn-submenu .abmn-label { font-size: 1rem; }
+  .abmn-tagline {
+    font-family: 'Poppins', sans-serif; font-size: 0.68rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #999999;
+  }
+</style>
+</head>
+<body>
+
+<div>
+  <div class="note">👆 Tap the ☰ icon to open the menu, then tap "Shop Soap" to expand it.</div>
+  <div class="device">
+
+    <!-- Fake header, just for preview purposes -->
+    <div class="header">
+      <button class="open-mobile-navigation" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-navigation">
+        <svg viewBox="0 0 50 50"><path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path></svg>
+      </button>
+      <div class="header-logo">AURORA<br>BATH &amp; BODY</div>
+      <div class="header-icons">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2"><path d="M3 6h18l-2 12H5L3 6z"/><path d="M8 6V4a4 4 0 0 1 8 0v2"/></svg>
+      </div>
+    </div>
+
+    <!-- Real mobile-navigation structure (matches your theme's layout.html) -->
+    <div id="mobile-navigation" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="mobile-navigation__wrapper">
+        <div class="mobile-navigation__body">
+          <nav aria-label="Browse products"></nav>
+          <nav class="mobile-navigation__custom-pages" aria-label="Pages"></nav>
+          <nav class="mobile-navigation__social-links" aria-label="Social links">
+            <ul class="mobile-navigation__icons">
+              <li><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="#222" stroke-width="1.5"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="#222" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.2" fill="#222"/></svg></li>
+              <li><svg viewBox="0 0 24 24"><path fill="#222" d="M20 7.5c-1 .5-2 .6-3 .7 1.1-.6 1.9-1.7 2.3-2.9-1 .6-2.1 1-3.3 1.3A5 5 0 0 0 12 12a14 14 0 0 1-10-5s-4 9 5 13a11 11 0 0 1-7 2c9 5 20 0 20-11.5 0-.3 0-.6 0-.8A7 7 0 0 0 20 7.5z"/></svg></li>
+              <li><svg viewBox="0 0 24 24"><path fill="#222" d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.7-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  /* ── Fake open/close, standing in for Big Cartel's theme.js in this preview only ── */
+  var toggleBtn = document.querySelector('.open-mobile-navigation');
+  var panel = document.getElementById('mobile-navigation');
+  toggleBtn.addEventListener('click', function () {
+    var isOpen = panel.getAttribute('aria-hidden') === 'false';
+    panel.setAttribute('aria-hidden', String(isOpen));
+    toggleBtn.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  /* ══════════════════ Your actual snippet logic, unchanged ══════════════════ */
+  (function () {
+
+    var HOME_URL = "https://aurorablissfulbath.bigcartel.com/";
+    var SHOP_SOAP_URL = "https://aurorablissfulbath.bigcartel.com/category/shop-soap";
+
+    var SHOP_SOAP_ITEMS = [
+      { name: "Autumn Crème",   url: "https://aurorablissfulbath.bigcartel.com/category/%F0%9F%8D%82autumn-cr%C3%A8me", icon: "🍂", tagline: "CREAMY • WARM • COMFORTING" },
+      { name: "Facial Soap",    url: "https://aurorablissfulbath.bigcartel.com/category/%F0%9F%AB%A7-facial-soap", icon: "🫧", tagline: "GENTLE • PURE • SKIN-LOVING" },
+      { name: "Island Bloom",   url: "https://aurorablissfulbath.bigcartel.com/category/%F0%9F%8C%B8-island-bloom", icon: "🌸", tagline: "FLORAL • GRACEFUL • ROMANTIC" },
+      { name: "Island Breeze",  url: "https://aurorablissfulbath.bigcartel.com/category/%F0%9F%8C%B4-island-breeze", icon: "🏝️", tagline: "FRESH • AIRY • SPA-INSPIRED" },
+      { name: "Island Fruits",  url: "https://aurorablissfulbath.bigcartel.com/category/%F0%9F%A5%AD-island-fruits", icon: "🥭", tagline: "FRUITY • SUN-KISSED • ISLAND-INSPIRED" }
+    ];
+
+    var FLAT_LINKS = [
+      { name: "Gift Sets & Bundles", url: "https://aurorablissfulbath.bigcartel.com/category/gift-sets-bundles", icon: "🎁" },
+      { name: "Bath Essentials",     url: "https://aurorablissfulbath.bigcartel.com/category/bath-essentials", icon: "🛁" },
+      { name: "About Aurora",        url: "https://aurorablissfulbath.bigcartel.com/about", icon: "🌴" },
+      { name: "Blog",                url: "https://aurorablissfulbath.bigcartel.com/blog", icon: "📝" },
+      { name: "Contact",             url: "https://aurorablissfulbath.bigcartel.com/contact", icon: "💌" }
+    ];
+
+    var CHEVRON = '<svg class="abmn-chevron" aria-hidden="true" viewBox="0 0 15 7.6" fill="currentColor"><path d="M15 1.1l-7.5 6.5-7.5-6.3 1-1.2 6.5 5.5 6.5-5.6z"/></svg>';
+
+    function buildMobileNav() {
+      var nav = document.getElementById('mobile-navigation');
+      if (!nav || nav.dataset.abmnBuilt) return;
+
+      var browseNav = nav.querySelector('nav[aria-label="Browse products"]');
+      var pagesNav = nav.querySelector('.mobile-navigation__custom-pages');
+      if (!browseNav || !pagesNav) return;
+
+      nav.dataset.abmnBuilt = 'true';
+
+      var subHtml = SHOP_SOAP_ITEMS.map(function (item) {
+        var iconHtml = item.icon ? '<span class="abmn-icon">' + item.icon + '</span>' : '';
+        var taglineHtml = item.tagline ? '<span class="abmn-tagline">' + item.tagline + '</span>' : '';
+        return '<li><a href="' + item.url + '">' +
+          iconHtml +
+          '<span class="abmn-submenu-text">' +
+            '<span class="abmn-label">' + item.name + '</span>' +
+            taglineHtml +
+          '</span>' +
+          CHEVRON +
+          '</a></li>';
+      }).join('');
+
+      var flatHtml = FLAT_LINKS.map(function (item) {
+        return '<li class="abmn-row"><a href="' + item.url + '">' +
+          '<span class="abmn-icon">' + item.icon + '</span>' +
+          '<span class="abmn-label">' + item.name + '</span>' +
+          CHEVRON +
+          '</a></li>';
+      }).join('');
+
+      browseNav.innerHTML =
+        '<ul class="abmn-list">' +
+          '<li class="abmn-row">' +
+            '<a href="' + HOME_URL + '">' +
+              '<span class="abmn-icon">🌺</span>' +
+              '<span class="abmn-label">Home</span>' +
+            '</a>' +
+          '</li>' +
+          '<li class="abmn-row" id="abmn-shopsoap-row">' +
+            '<div class="abmn-trigger-wrap">' +
+              '<a class="abmn-cat-link" href="' + SHOP_SOAP_URL + '">' +
+                '<span class="abmn-icon">🌺</span>' +
+                '<span class="abmn-label">Shop Soap</span>' +
+              '</a>' +
+              '<button type="button" class="abmn-toggle" aria-expanded="true" aria-controls="abmn-shopsoap-submenu" aria-label="Collapse Shop Soap">' +
+                CHEVRON +
+              '</button>' +
+            '</div>' +
+            '<ul class="abmn-submenu abmn-submenu--open" id="abmn-shopsoap-submenu">' + subHtml + '</ul>' +
+          '</li>' +
+          flatHtml +
+        '</ul>';
+
+      pagesNav.innerHTML = '';
+
+      var toggle = document.querySelector('#abmn-shopsoap-row .abmn-toggle');
+      var row = document.getElementById('abmn-shopsoap-row');
+      var submenu = document.getElementById('abmn-shopsoap-submenu');
+      row.classList.add('abmn-row--open');
+      toggle.addEventListener('click', function () {
+        var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!isOpen));
+        toggle.setAttribute('aria-label', isOpen ? 'Expand Shop Soap' : 'Collapse Shop Soap');
+        row.classList.toggle('abmn-row--open', !isOpen);
+        submenu.classList.toggle('abmn-submenu--open', !isOpen);
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', buildMobileNav);
+    } else {
+      buildMobileNav();
+    }
+  })();
+</script>
+
+</body>
+</html>

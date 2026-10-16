@@ -1,0 +1,415 @@
+<!-- ============================================================
+     AURORA BLISSFUL BATH & BODY — Mailchimp Signup Form
+     Clean, branded, core integration preserved
+     ============================================================ -->
+
+<div id="mc_embed_shell">
+  <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
+
+  <style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Poppins:wght@300;400;500;600&display=swap');
+
+    /* ── OUTER WRAPPER ── */
+    #mc_embed_signup {
+      background: #F1EAEA !important;
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 14px !important;
+      width: 100% !important;
+      max-width: 580px !important;
+      margin: 0 auto !important;
+      padding: 0 !important;
+      box-sizing: border-box !important;
+      border: none !important;
+      border-radius: 0 !important;
+    }
+
+    /* ── AURORA PREFIX SECTION ── */
+    .aurora-mc-prefix {
+      text-align: center !important;
+      padding: 48px 32px 32px !important;
+      background: #F1EAEA !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Top flourish */
+    .aurora-mc-flourish {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 12px !important;
+      margin-bottom: 24px !important;
+    }
+    .aurora-mc-flourish-line {
+      width: 40px !important;
+      height: 1px !important;
+      background: linear-gradient(to right, transparent, #CBAD81) !important;
+      display: inline-block !important;
+    }
+    .aurora-mc-flourish-line:last-child {
+      background: linear-gradient(to left, transparent, #CBAD81) !important;
+    }
+    .aurora-mc-flourish-icon {
+      font-size: 1.4rem !important;
+      line-height: 1 !important;
+    }
+
+    /* Eyebrow */
+    .aurora-mc-eyebrow {
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 0.72rem !important;
+      letter-spacing: 0.22em !important;
+      text-transform: uppercase !important;
+      color: #CBAD81 !important;
+      font-weight: 500 !important;
+      margin: 0 0 12px 0 !important;
+      padding: 0 !important;
+      display: block !important;
+    }
+
+    /* Main heading — uses site default font (Marcellus/primary) */
+    .aurora-mc-heading {
+      font-family: var(--primary-font, 'Marcellus', serif) !important;
+      font-size: clamp(1.6rem, 4vw, 2.2rem) !important;
+      font-weight: 500 !important;
+      color: var(--header-text-color, #222222) !important;
+      margin: 0 0 14px 0 !important;
+      padding: 0 !important;
+      line-height: 1.25 !important;
+      letter-spacing: 0.01em !important;
+      text-align: center !important;
+      width: 100% !important;
+      display: block !important;
+    }
+
+    /* Subtext */
+    .aurora-mc-subtext {
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 0.92rem !important;
+      color: #555555 !important;
+      line-height: 1.8 !important;
+      font-weight: 300 !important;
+      margin: 0 0 24px 0 !important;
+      padding: 0 !important;
+      max-width: 460px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    /* Perks row */
+    .aurora-mc-perks {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      margin-bottom: 28px !important;
+    }
+    .aurora-mc-perk {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      background: rgba(203,173,129,0.12) !important;
+      border: 1px solid rgba(203,173,129,0.35) !important;
+      border-radius: 999px !important;
+      padding: 5px 14px !important;
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 0.75rem !important;
+      font-weight: 500 !important;
+      color: #7a6040 !important;
+      letter-spacing: 0.04em !important;
+    }
+    .aurora-mc-perk-dot {
+      width: 5px !important;
+      height: 5px !important;
+      border-radius: 50% !important;
+      background: #CBAD81 !important;
+      display: inline-block !important;
+      flex-shrink: 0 !important;
+    }
+
+    /* Gold divider above form */
+    .aurora-mc-divider {
+      height: 1px !important;
+      background: linear-gradient(to right, transparent, #CBAD81, transparent) !important;
+      border: none !important;
+      margin: 0 0 28px 0 !important;
+    }
+
+    /* ── FORM CARD ── */
+    #mc_embed_signup_scroll {
+      background: #ffffff !important;
+      border: 1px solid rgba(203,173,129,0.3) !important;
+      border-top: 3px solid #CBAD81 !important;
+      border-radius: 4px !important;
+      padding: 32px 32px 28px !important;
+      box-sizing: border-box !important;
+      margin: 0 32px 40px !important;
+    }
+
+    /* Hide the default Mailchimp h2 — we use our own prefix heading */
+    #mc_embed_signup h2 {
+      display: none !important;
+    }
+
+    /* ── INDICATES REQUIRED ── */
+    #mc_embed_signup .indicates-required {
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 0.72rem !important;
+      color: #aaaaaa !important;
+      text-align: right !important;
+      margin: 0 0 18px 0 !important;
+      padding: 0 !important;
+    }
+    #mc_embed_signup .asterisk {
+      color: #C43F06 !important;
+    }
+
+    /* ── FIELD GROUPS ── */
+    #mc_embed_signup .mc-field-group {
+      width: 100% !important;
+      padding: 0 !important;
+      margin-bottom: 16px !important;
+      box-sizing: border-box !important;
+    }
+
+    /* ── LABELS ── */
+    #mc_embed_signup .mc-field-group label {
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 0.75rem !important;
+      font-weight: 600 !important;
+      color: #444444 !important;
+      letter-spacing: 0.1em !important;
+      text-transform: uppercase !important;
+      display: block !important;
+      margin-bottom: 7px !important;
+    }
+
+    /* ── TEXT & EMAIL INPUTS ── */
+    #mc_embed_signup input.text,
+    #mc_embed_signup input[type="text"],
+    #mc_embed_signup input[type="email"],
+    #mc_embed_signup input.email {
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 0.9rem !important;
+      font-weight: 300 !important;
+      color: #222222 !important;
+      background: #fdf9f5 !important;
+      border: 1px solid rgba(203,173,129,0.4) !important;
+      border-radius: 2px !important;
+      padding: 13px 16px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      outline: none !important;
+      transition: border-color 0.25s, box-shadow 0.25s !important;
+      -webkit-appearance: none !important;
+    }
+    #mc_embed_signup input.text:focus,
+    #mc_embed_signup input[type="text"]:focus,
+    #mc_embed_signup input[type="email"]:focus,
+    #mc_embed_signup input.email:focus {
+      border-color: #CBAD81 !important;
+      background: #ffffff !important;
+      box-shadow: 0 0 0 3px rgba(203,173,129,0.15) !important;
+    }
+    #mc_embed_signup input::placeholder {
+      color: #cccccc !important;
+      font-weight: 300 !important;
+    }
+
+    /* ── SUBMIT BUTTON ── */
+    #mc_embed_signup .clear {
+      margin-top: 8px !important;
+    }
+    #mc_embed_signup .clear input.button,
+    #mc-embedded-subscribe {
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 0.82rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.14em !important;
+      text-transform: uppercase !important;
+      color: #ffffff !important;
+      background: #CBAD81 !important;
+      border: none !important;
+      border-radius: 2px !important;
+      padding: 14px 36px !important;
+      width: 100% !important;
+      cursor: pointer !important;
+      transition: background 0.25s ease !important;
+      -webkit-appearance: none !important;
+      margin: 0 !important;
+    }
+    #mc_embed_signup .clear input.button:hover,
+    #mc-embedded-subscribe:hover {
+      background: #222222 !important;
+    }
+
+    /* ── RESPONSE MESSAGES ── */
+    #mc_embed_signup #mce-error-response {
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 0.82rem !important;
+      color: #C43F06 !important;
+      background: rgba(196,63,6,0.06) !important;
+      border-left: 3px solid #C43F06 !important;
+      padding: 10px 14px !important;
+      border-radius: 0 2px 2px 0 !important;
+      margin: 12px 0 !important;
+      line-height: 1.6 !important;
+    }
+    #mc_embed_signup #mce-success-response {
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 0.88rem !important;
+      color: #2d6a4f !important;
+      background: rgba(45,106,79,0.07) !important;
+      border-left: 3px solid #CBAD81 !important;
+      padding: 12px 16px !important;
+      border-radius: 0 2px 2px 0 !important;
+      margin: 12px 0 !important;
+      line-height: 1.6 !important;
+    }
+
+    /* ── INLINE ERRORS ── */
+    #mc_embed_signup div.mce_inline_error {
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 0.75rem !important;
+      color: #C43F06 !important;
+      background: transparent !important;
+      padding: 4px 0 0 !important;
+      margin: 0 !important;
+      font-weight: 400 !important;
+    }
+
+    /* ── FINE PRINT ── */
+    .aurora-mc-fine {
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 0.72rem !important;
+      color: #aaaaaa !important;
+      text-align: center !important;
+      margin: -16px 32px 32px !important;
+      padding: 0 !important;
+      line-height: 1.6 !important;
+    }
+
+    /* ── MOBILE ── */
+    @media screen and (max-width: 600px) {
+      .aurora-mc-prefix {
+        padding: 36px 16px 24px !important;
+      }
+      #mc_embed_signup_scroll {
+        margin: 0 16px 28px !important;
+        padding: 24px 18px 20px !important;
+      }
+      .aurora-mc-fine {
+        margin: -12px 16px 24px !important;
+      }
+      .aurora-mc-heading {
+        font-size: 1.5rem !important;
+      }
+      .aurora-mc-subtext {
+        font-size: 0.88rem !important;
+      }
+      .aurora-mc-perks {
+        gap: 6px !important;
+      }
+      .aurora-mc-perk {
+        font-size: 0.7rem !important;
+        padding: 4px 10px !important;
+      }
+    }
+  </style>
+
+  <!-- ── AURORA PREFIX CONTENT ── -->
+  <div class="aurora-mc-prefix">
+
+    <div class="aurora-mc-flourish">
+      <span class="aurora-mc-flourish-line"></span>
+      <span class="aurora-mc-flourish-icon">🌺</span>
+      <span class="aurora-mc-flourish-line"></span>
+    </div>
+
+    <span class="aurora-mc-eyebrow">Exclusive Access</span>
+
+    <h2 class="aurora-mc-heading">Join the Aurora Circle</h2>
+
+    <p class="aurora-mc-subtext">
+      Be the first to know about new collections, seasonal launches,
+      self-care rituals, and exclusive offers.
+      Island beauty, delivered to your inbox.
+    </p>
+
+    <div class="aurora-mc-perks">
+      <span class="aurora-mc-perk"><span class="aurora-mc-perk-dot"></span>New Launches First</span>
+      <span class="aurora-mc-perk"><span class="aurora-mc-perk-dot"></span>Exclusive Offers</span>
+      <span class="aurora-mc-perk"><span class="aurora-mc-perk-dot"></span>Self-Care Rituals</span>
+      <span class="aurora-mc-perk"><span class="aurora-mc-perk-dot"></span>Seasonal Collections</span>
+    </div>
+
+    <div class="aurora-mc-divider"></div>
+
+  </div><!-- /aurora-mc-prefix -->
+
+  <!-- ── MAILCHIMP FORM — core integration untouched ── -->
+  <div id="mc_embed_signup">
+    <form action="https://bigcartel.us1.list-manage.com/subscribe/post?u=cd0b83a26c1582b1cfb3b8ac2&amp;id=27246ddf04&amp;f_id=00ffe3e0f0"
+          method="post"
+          id="mc-embedded-subscribe-form"
+          name="mc-embedded-subscribe-form"
+          class="validate"
+          target="_blank">
+
+      <div id="mc_embed_signup_scroll">
+
+        <h2>Subscribe</h2>
+
+        <div class="indicates-required">
+          <span class="asterisk">*</span> indicates required
+        </div>
+
+        <!-- First Name -->
+        <div class="mc-field-group">
+          <label for="mce-FNAME">First Name</label>
+          <input type="text" name="FNAME" class="text" id="mce-FNAME" value="" placeholder="Your first name">
+        </div>
+
+        <!-- Email Address -->
+        <div class="mc-field-group">
+          <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+          <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" value="" required placeholder="your@email.com">
+        </div>
+
+        <!-- Mailchimp response messages -->
+        <div id="mce-responses" class="clear">
+          <div class="response" id="mce-error-response" style="display:none;"></div>
+          <div class="response" id="mce-success-response" style="display:none;"></div>
+        </div>
+
+        <!-- Bot honeypot — do not remove -->
+        <div aria-hidden="true" style="position:absolute;left:-5000px;">
+          <input type="text" name="b_cd0b83a26c1582b1cfb3b8ac2_27246ddf04" tabindex="-1" value="">
+        </div>
+
+        <!-- Submit -->
+        <div class="clear">
+          <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+  <!-- Fine print -->
+  <p class="aurora-mc-fine">No spam, ever. Unsubscribe at any time. 🌴</p>
+
+  <!-- ── MAILCHIMP CORE VALIDATION SCRIPTS ── -->
+  <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+  <script type="text/javascript">
+    (function($) {
+      window.fnames = new Array();
+      window.ftypes = new Array();
+      /* Field 0: Email — required, maps to EMAIL merge tag */
+      fnames[0] = 'EMAIL'; ftypes[0] = 'email';
+      /* Field 1: First Name — maps to FNAME merge tag */
+      fnames[1] = 'FNAME'; ftypes[1] = 'text';
+    }(jQuery));
+    var $mcj = jQuery.noConflict(true);
+  </script>
+
+</div><!-- /mc_embed_shell -->
